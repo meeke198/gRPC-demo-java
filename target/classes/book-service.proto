@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.b4u.grpc.book.model";
+option java_outer_classname = "BookProto";
+
+message Book {
+  string name = 1;
+  string author = 2;
+  int32 price = 3;
+}
+
+message SearchRequest {
+  string author = 1;
+}
+
+message Books {
+  repeated Book book= 1;
+}
+
+service BookService {
+  rpc searchByAuthor (SearchRequest) returns (stream Book);
+  rpc getListBook (SearchRequest) returns (Books);
+}

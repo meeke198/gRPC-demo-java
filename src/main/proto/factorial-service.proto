@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.b4u.grpc.factorial.model";
+option java_outer_classname = "FactorialProto";
+
+message FactorialNumberRequest {
+  int32 b4u_number = 1;
+}
+
+message Factorial {
+  int32 b4u_result = 1;
+}
+
+service FactorialService {
+
+  //unary
+  rpc getFactorial(FactorialNumberRequest) returns (Factorial);
+}
