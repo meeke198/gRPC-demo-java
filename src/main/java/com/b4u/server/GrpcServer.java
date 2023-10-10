@@ -11,6 +11,7 @@ public class GrpcServer {
         Server server = ServerBuilder.forPort(9000)
                 .addService(new BankService())
                 .addService(new FactorialService())
+                .addService(new BookService())
                 .build();
         server.start();
         server.awaitTermination();
